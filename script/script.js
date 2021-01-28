@@ -1,0 +1,6 @@
+let money = document.querySelector('.money'), 
+    incom = document.querySelector('.incom'), 
+    add__expenses = document.querySelector('.add__expenses'), 
+    deposit = document.querySelector('.deposit'), 
+    mission = document.querySelector('.mission'), 
+    period = document.querySelector('.period'), 
