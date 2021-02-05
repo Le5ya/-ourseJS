@@ -25,63 +25,60 @@ let appData = {
     appData.addExpenses = prompt('Перечислите возможные расходы за расчитываемый период через запятую');
     appData.addExpenses.toLowerCase().split(',');
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
+    appData.mission = +prompt("Цель?");
   },
         getExpensesMonth: function () {
-          let sum = 0, question;
+          let sum = 0, question, a_title;
           for(let i = 0; i < 2; i++) { 
-              if(i===0) {
-                expenses1 = prompt('Введите обязательную статью расходов', 'foods');   
-              } else {
-                expenses2 = prompt('Введите обязательную статью расходов', 'clothes');
-              }
-                 do{
-                  question = prompt('Во сколько это обойдётся?', 2500);
-                }
+            a_title =  prompt('Введите обязательную статью расходов', 'foods');
+            question = prompt('Во сколько это обойдётся?', 2500);
+            appData.expenses[a_title] = question
             while (isNaN(question) || question === '' || question === null); {
-           sum += +question;
+                sum += +question;
              }
-            return sum;
+           
           }
-        
+         appData.expensesMonth = sum;
+         return sum;
         },
         getAccumulatedMonth: function () {
-           return money - appData.getExpensesMonth();
+           appData.budgetMonth = appData.budget - appData.expensesMonth;
+           appData.budgetDay = appData.budgetMonth / 30;
+           return appData.budgetMonth
          },
         getTargetMonth: function() { 
-        appData.monthTarget = appData.mission / appData.getAccumulatedMonth();
+         let accum = appData.getAccumulatedMonth()
+        appData.monthTarget = appData.mission / accum;
+        
         return appData.monthTarget;
         },
          getStatusIncome: function () {
-          if (budgetDay > 1200) {
+          if (appData.budgetDay > 1200) {
             return ("У вас высокий уровень дохода");
-          } else if (budgetDay > 600 && appDate.budgetDay <= 1200) {
+          } else if (appData.budgetDay > 600 && appData.budgetDay <= 1200) {
             return ("У вас средний уровень дохода");
-          } else if (budgetDay >= 0 && appDate.budgetDay < 600) {
+          } else if (appData.budgetDay >= 0 && appData.budgetDay < 600) {
             return ("К сожалению у вас уровень дохода ниже среднего");
-          } else if (budgetDay < 0) {
+          } else if (appData.budgetDay < 0) {
               return ("Что то пошло не так");
        }
      }
 
 };
 appData.asking()
-let expenses1, 
-    expenses2;
 
+appData.getExpensesMonth()
+appData.getTargetMonth();
+appData.getAccumulatedMonth();
 
-let budgetDay = appData.getAccumulatedMonth() / 30;
-
-console.log(appData.getAccumulatedMonth());
 //let monthTarget = appData.getTargetMonth();
-console.log(appData.getTargetMonth());
-
+console.log(appData.expensesMonth)
+if(appData.monthTarget >= 0) {
+    console.log("Цель будет достигнута за " + Math.ceil(appData.monthTarget) + ' месяца');
+  } else {
+    console.log("Цель не будет достигнута");
+  }
 console.log(appData.getStatusIncome()); 
-
-if(appData.getTargetMonth()>0) {
-  console.log("Цель будет достигнута за " + Math.ceil(appData.monthTarget) + ' месяца');
-} else {
-  console.log("Цель не будет достигнута");
-}
 
    
  
