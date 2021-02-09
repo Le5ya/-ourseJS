@@ -1,3 +1,31 @@
+ const startBtn = document.getElementById('start'),
+       btnPlusIncome = document.getElementsByTagName('button')[0],
+       btnPlusExpensesAdd = document.getElementsByTagName('button')[2],
+       depositCheck = document.querySelector('#deposit-check'),
+       additionalIncomeItem = document.querySelectorAll('.additional_income-item'),
+       budgetMonthValue = document.getElementsByClassName('result-total budget_month-value'), 
+       budgetDayValue = document.getElementsByClassName('result-total budget_day-value'), 
+       expensesMonthValue = document.getElementsByClassName('result-total expenses_month-value'), 
+       additionalIncomeValue = document.getElementsByClassName('result-total additional_income-value'), 
+       additionalExpensesValue = document.getElementsByClassName('result-total additional_expenses-value'), 
+       incomePeriodValue = document.getElementsByClassName('result-total income_period-value'), 
+       targetMonthValue = document.getElementsByClassName('result-total target_month-value'),
+       salaryAmount = document.querySelector('.salary-amount'),
+       incomeTitle = document.querySelector('.income-title'),                      
+       incomeAmount = document.querySelector('.income-amount'),
+       additionalIncomeItem = document.querySelector('.additional_income-item'),
+       additionalIncomeItem = document.querySelector('.additional_income-item'),
+       expensesTitle = document.querySelector('.expenses-title'),
+       expensesAmount = document.querySelector('.expenses-amount'),
+       additionalExpensesItem = document.querySelector('.additional_expenses-item'),
+       depositCheck = document.querySelector('.deposit-check'),
+       depositAmount = document.querySelector('.deposit-amount'),
+       depositPercent = document.querySelector('.deposit-percent'),
+       targetAmount = document.querySelector('.target-amount'),
+       periodSelect = document.querySelector('.period-select'),
+
+       cancel = document.querySelector('#cancel');
+
  let money,
     start = function() {
       do {
