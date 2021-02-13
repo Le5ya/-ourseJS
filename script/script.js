@@ -22,9 +22,11 @@ let start = document.getElementById('start'),
        additionalIncomeItem = document.querySelector('.additional_income-item'),
        depositAmount = document.querySelector('.deposit-amount'),
        depositPercent = document.querySelector('.deposit-percent'),
-       targetAmount = document.querySelector('.target-amount'),
-       periodSelect = document.querySelector('.period-select'),
-       periodAmount = document.querySelector('.period-amount');
+       targetAmount = document.querySelector('.target-amount');
+       periodAmount = document.querySelector('.period-amount'),
+       periodSelect = document.querySelector('.period-select');
+       
+       
 
        let cancel = document.querySelector('#cancel');
        
@@ -58,6 +60,7 @@ let appData = {
       appData.getAddIncome();
       
       appData.getBudget();
+      appData.getPeriodAmount();
       appData.showResult();
     },
     showResult: function() {
@@ -168,17 +171,25 @@ let appData = {
      calcPeriod: function() {
        return appData.budgetMonth * periodSelect.value;
        
-     }
+     },
+     getPeriodAmount: function() { 
+       periodAmount.textContent = periodSelect.value;
+ }
+
 };
 
 
 start.addEventListener('click', appData.start);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
+periodSelect.onchange = appData.getPeriodAmount;
 
-for(let value=1; value<=12; value++){
- periodAmount.textContent === +periodSelect.getAttribute(value);
-}
+
+
+ 
+
+ 
+
 
 
 // appData.getTargetMonth();
