@@ -1,5 +1,6 @@
   
 let start = document.getElementById('start'),
+    cancel = document.querySelector('#cancel'),
        btnPlus = document.getElementsByTagName('button'),
        incomePlus = btnPlus[0],
        expensesPlus = btnPlus[1],
@@ -24,12 +25,9 @@ let start = document.getElementById('start'),
        depositPercent = document.querySelector('.deposit-percent'),
        targetAmount = document.querySelector('.target-amount');
        periodAmount = document.querySelector('.period-amount'),
-       periodSelect = document.querySelector('.period-select');
-       
-       
-
-       let cancel = document.querySelector('#cancel');
-       
+       periodSelect = document.querySelector('.period-select'),
+       input = document.querySelectorAll('input');
+          
 let appData = {
   budget: 0,
   income: {},
@@ -53,9 +51,6 @@ let appData = {
     }
       appData.budget = +salaryAmount.value;
 
-     
-
-
       appData.getExpenses();
       appData.getIncome();
       appData.getExpensesMonth();
@@ -65,6 +60,14 @@ let appData = {
       appData.getBudget();
       appData.getPeriodAmount();
       appData.showResult();
+      
+    for(elem of input){
+    
+      elem.setAttribute("disabled", "true");
+    }
+      
+      start.style.display = 'none';
+      cancel.style.display = 'block';
     },
     showResult: function() {
       budgetMonthValue.value = this.budgetMonth;
@@ -177,15 +180,28 @@ let appData = {
      },
      getPeriodAmount: function() { 
        periodAmount.textContent = periodSelect.value;
- }
+ },
+   cancel: function() {
+    cancel.style.display = 'none';
+    start.style.display = 'block';
+
+      for(elem of input){
+      elem.removeAttribute("disabled", "true");
+      elem.value = '';
+    }
+      
+     appData.start(); 
+      
+   }
 
 };
 
-//  appData.start();
+  
 start.addEventListener('click', appData.start);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.onchange = appData.getPeriodAmount;
+cancel.addEventListener('click', appData.cancel);
 
 
 
