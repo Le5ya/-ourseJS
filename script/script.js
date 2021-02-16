@@ -60,14 +60,15 @@ let appData = {
       appData.getBudget();
       appData.getPeriodAmount();
       appData.showResult();
+
+      start.style.display = 'none';
+      cancel.style.display = 'block';
       
     for(elem of input){
-    
       elem.setAttribute("disabled", "true");
     }
       
-      start.style.display = 'none';
-      cancel.style.display = 'block';
+   
     },
     showResult: function() {
       budgetMonthValue.value = this.budgetMonth;
@@ -112,6 +113,7 @@ let appData = {
          incomeItems.forEach(function(item) {
          let itemIncome = item.querySelector('.income-title').value;
          let cashIncome = item.querySelector('.income-amount').value;
+
          if(itemIncome !== '' && cashIncome !==''){
            appData.income[itemIncome] = cashIncome;
          }
@@ -126,7 +128,7 @@ let appData = {
         addExpenses.forEach(function(item){
           item = item.trim();
           if(item !==''){
-          this.addExpenses.push(item);
+          appData.addExpenses.push(item);
         }
    }) 
     
@@ -136,7 +138,7 @@ let appData = {
       addIncome.forEach(function(item){
        item = item.trim();
       if (item !== ''){
-        this.addIncome.push(item);
+        appData.addIncome.push(item);
       }
     });
   },
