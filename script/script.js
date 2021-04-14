@@ -36,10 +36,6 @@ let expenses = [];
 
 console.log(addExpenses.toLowerCase().split(','));
 
-// let exp = [];
-// exp += addExpenses;
-// console.log(exp);
-
 let getExpensesMonth = function () {
  let sum = 0;
  for (let i=0; i<2; i++){
@@ -55,19 +51,23 @@ let getExpensesMonth = function () {
 getExpensesMonth();
 
  let expensesMonth = getExpensesMonth();
-
  console.log('Расходы за месяц '+ expensesMonth);
 
- let getBudgetMonth = function(){
+ let getAccumulatedMonth = function(){
    return money - expensesMonth;
  }
- let budgetMonth = getBudgetMonth();
-     period = Math.ceil(mission / budgetMonth );
+ let accumulatedMonth = getAccumulatedMonth();
+
+ let getTargetMonth = function(){
+  return Math.ceil(mission /accumulatedMonth );
+ }
+
+  period = getTargetMonth();
 
 
 console.log('Цель будет достигнута через ' + period + ' месяцев');
 
-let budgetDay = budgetMonth / 30;
+let budgetDay = accumulatedMonth / 30;
 
 
 let getStatusIncome = function () {
