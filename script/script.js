@@ -1,3 +1,4 @@
+
 'use strict';
 let isNumber = function(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -10,6 +11,9 @@ let money,
  mission = +prompt('Цель:', 99999.5),
  period = 3;
 
+
+
+
 let start = function(){
 money = +prompt('Ваш месячный доход?');
 
@@ -19,6 +23,7 @@ while (!isNumber(money)) {
 };
 
 start();
+
 
 let showTypeOf = function (data) {
   console.log(data, typeof(data));
@@ -59,13 +64,11 @@ getExpensesMonth();
  }
 
   period = getTargetMonth();
-
-if(period > 0){
+if (period > 0){
  console.log('Цель будет достигнута через ' + period + ' месяцев'); 
-}else{
-  console.log('Цель не будет достигнута.');
-}
-
+}else {
+  console.log('Цель не будет достигнута');
+} 
 
 let budgetDay = accumulatedMonth / 30;
 
@@ -83,4 +86,5 @@ let getStatusIncome = function () {
        }
      };
    console.log(getStatusIncome()); 
+
 
