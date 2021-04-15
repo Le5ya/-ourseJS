@@ -10,9 +10,6 @@ let money,
  mission = +prompt('Цель:', 99999.5),
  period = 3;
 
-
-
-
 let start = function(){
 money = +prompt('Ваш месячный доход?');
 
@@ -22,7 +19,6 @@ while (!isNumber(money)) {
 };
 
 start();
-
 
 let showTypeOf = function (data) {
   console.log(data, typeof(data));
@@ -64,8 +60,12 @@ getExpensesMonth();
 
   period = getTargetMonth();
 
+if(period > 0){
+ console.log('Цель будет достигнута через ' + period + ' месяцев'); 
+}else{
+  console.log('Цель не будет достигнута.');
+}
 
-console.log('Цель будет достигнута через ' + period + ' месяцев');
 
 let budgetDay = accumulatedMonth / 30;
 
