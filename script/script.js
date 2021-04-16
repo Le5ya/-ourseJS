@@ -60,9 +60,10 @@ let appData = {
      return appData.budgetMonth
  },
   getTargetMonth: function(){
-    let accum = appData.getBudget();
-    appData.monthTarget = Math.ceil(appData.mission /accum);
-     return appData.monthTarget;
+    return appData.mission / appData.budgetMonth;
+    // let accum = appData.getBudget();
+    // appData.monthTarget = Math.ceil(appData.mission /accum);
+    //  return appData.monthTarget;
  },
   getStatusIncome: function () {
   
@@ -81,32 +82,27 @@ let appData = {
 };
 
 appData.asking();
-// let expenses = [];
-
 appData.getExpensesMonth();
-let expensesMonth = appData.getExpensesMonth();
+appData.getBudget();
+
  console.log('Расходы за месяц '+ appData.expensesMonth);
 appData.getTargetMonth(); 
-appData.getBudget();
+
 console.log(appData.expensesMonth);
- let monthTarget = appData.getTargetMonth();
-    if (appData.monthTarget >= 0){
-     console.log('Цель будет достигнута через ' + Math.ceil (appData.monthTarget) + ' месяцев'); 
+
+
+
+    if (appData.getTargetMonth() >= 0){
+     console.log('Цель будет достигнута через ' + Math.ceil (appData.getTargetMonth()) + ' месяцев'); 
     }else {
       console.log('Цель не будет достигнута');
     } 
+
 console.log(appData.getStatusIncome());
 
-     // appData.getStatusIncome();
-  function getData() {
-  let data = [];
-  for(let key in appData){
-  data += appData[key]; 
+for(let key in appData){
+console.log('Наша программа включает в себя данные: ' + appData[key]);  
 }
-return data;
-};
 
-getData();
- console.log('Наша программа включает в себя данные: ' + getData()); 
 
 
