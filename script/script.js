@@ -1,4 +1,3 @@
-
 'use strict';
 
  const start = document.getElementById('start'),
@@ -270,9 +269,6 @@ class AppData{
 let appData = new AppData;
 appData.eventListener();
 
-
-
-
     // if (this.getTargetMonth() >= 0){
     //  console.log('Цель будет достигнута через ' + Math.ceil (this.getTargetMonth()) + ' месяцев'); 
     // }else {
@@ -294,5 +290,4 @@ appData.eventListener();
   //    return sum;
 
   //},
-
 
