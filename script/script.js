@@ -266,7 +266,7 @@ class AppData{
           }  
      };
   };
-let appData = new AppData;
+const appData = new AppData();
 appData.eventListener();
 
     // if (this.getTargetMonth() >= 0){
