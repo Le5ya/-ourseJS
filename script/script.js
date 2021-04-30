@@ -244,13 +244,13 @@ class AppData{
   getInfoDeposit = function(){
     if(this.deposit){
        this.percentDeposit = depositPercent.value;
-       if(isNaN(depositPercent.value) || depositPercent.value === ''|| depositPercent.value > 100
-        || depositPercent.value < 0 ) {
+       if(isNaN(depositPercent.value) || depositPercent.value === ''|| depositPercent.value > 100 || depositPercent.value < 0 ) {
         alert('Bедите корректное значение в поле проценты');
               start.setAttribute('disabled', 'true');
       } else {
        this.moneyDeposit = depositAmount.value;  
-    }
+     }
+    } 
   };
   changePercent = function() {
     const valueSelect = this.value;
@@ -275,7 +275,7 @@ class AppData{
       this.deposit = false;
       depositBank.removeEventListener('change', this.changePercent);
     }
-  }
+  };
   eventListener = function () {
     start.addEventListener('click', this.start.bind(appData));
     expensesPlus.addEventListener('click', this.addExpensesBlock);
@@ -295,7 +295,8 @@ class AppData{
       addExp.push(element);
           }  
      };
-  };
+    };
+ 
 const appData = new AppData();
 appData.eventListener();
 
