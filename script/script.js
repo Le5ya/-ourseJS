@@ -122,7 +122,6 @@ class AppData{
   this.percentDeposit = 0;
   this.moneyDeposit = 0;
 
-
   cancel.style.display = 'none';
   start.style.display = 'block';
   expensesPlus.removeAttribute('disabled');
